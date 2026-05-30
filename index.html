@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAXedge Technologies — Faxing, Reimagined.</title>
+  <meta name="description" content="The world's most secure fax platform. No per-page fees. No compromises. Just pure, cloud-native performance." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.95/build/spline-viewer.js"></script>
+</head>
+<body>
+
+  <!-- =============================================
+       Navigation
+       ============================================= -->
+  <nav>
+    <div class="nav-inner">
+
+      <!-- Logo -->
+      <a href="#" class="nav-logo">
+        <img src="FE-WHITE-SVG.svg" alt="FAXedge" class="nav-logo-img" />
+      </a>
+
+      <!-- Links -->
+      <ul class="nav-links">
+
+        <!-- Solutions — hover dropdown -->
+        <li class="nav-has-dropdown">
+          <a href="#" class="nav-dropdown-trigger">
+            Solutions
+            <svg class="nav-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-dropdown-item">
+              <span class="ndi-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              </span>
+              <span class="ndi-text">
+                <strong>Platform</strong>
+                <em>Core faxing infrastructure</em>
+              </span>
+            </a>
+            <a href="#" class="nav-dropdown-item">
+              <span class="ndi-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-8"/></svg>
+              </span>
+              <span class="ndi-text">
+                <strong>Industries</strong>
+                <em>Healthcare, legal, finance & more</em>
+              </span>
+            </a>
+            <a href="#" class="nav-dropdown-item">
+              <span class="ndi-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M8 8h8M8 16h5"/></svg>
+              </span>
+              <span class="ndi-text">
+                <strong>Use Cases</strong>
+                <em>e-Fax, API, email-to-fax & more</em>
+              </span>
+            </a>
+            <a href="#" class="nav-dropdown-item">
+              <span class="ndi-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+              </span>
+              <span class="ndi-text">
+                <strong>FAXedge ATA</strong>
+                <em>Analog telephone adapter</em>
+              </span>
+            </a>
+          </div>
+        </li>
+
+        <li><a href="#">Hardware</a></li>
+        <li><a href="#">Software</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Partners</a></li>
+        <li><a href="#">Support</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+
+      <!-- Right side -->
+      <div class="nav-right">
+        <a href="#get-started" class="nav-cta">Get Started</a>
+        <button class="nav-search" aria-label="Search">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- =============================================
+       Fixed 3D Background (Spline)
+       ============================================= -->
+  <div class="spline-bg" aria-hidden="true">
+    <spline-viewer
+      url="https://prod.spline.design/0qed5KHXLCVABoV8/scene.splinecode"
+      events-target="global"
+    ></spline-viewer>
+    <!-- covers the Spline watermark at bottom -->
+    <div class="spline-watermark-cover"></div>
+  </div>
+
+  <!-- =============================================
+       Scroll Stage — creates scroll distance
+       Text scenes float over the sticky 3D object
+       ============================================= -->
+  <div class="scroll-stage" id="scrollStage">
+
+    <!-- Scene 1: Hero -->
+    <section class="scene scene-hero" data-scene="0">
+      <div class="scene-content" id="scene0">
+        <span class="scene-eyebrow">Introducing FAXedge Gateway 3.0</span>
+        <h1>Faxing,<br>reimagined.</h1>
+        <p>The world's most secure fax platform. No per-page fees. No compromises. Just pure, cloud-native performance.</p>
+        <div class="scene-hero-actions">
+          <a href="#get-started" class="btn-primary">Start Free Trial</a>
+          <a href="#features" class="btn-outline">Learn More</a>
+        </div>
+      </div>
+      <div class="scroll-hint">
+        <div class="scroll-hint-arrow"></div>
+        Scroll
+      </div>
+    </section>
+
+    <!-- Scene 2: Gateway Core -->
+    <section class="scene" data-scene="1">
+      <div class="scene-content" id="scene1">
+        <span class="scene-eyebrow">Gateway Core</span>
+        <h2>Built for the demands of modern telecom.</h2>
+        <p>Faxedge's distributed engine handles millions of concurrent sessions without breaking a sweat — eliminating the bottlenecks that plague legacy fax servers.</p>
+        <div class="scene-stats">
+          <div class="stat-item">
+            <div class="stat-num">99.99%</div>
+            <div class="stat-label">Uptime SLA</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">2M+</div>
+            <div class="stat-label">Pages / Day</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">&lt;80ms</div>
+            <div class="stat-label">Latency</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 3: API-First -->
+    <section class="scene" data-scene="2">
+      <div class="scene-content" id="scene2">
+        <span class="scene-eyebrow">API-First Design</span>
+        <h2>Send. Receive.<br>Track. Programmatically.</h2>
+        <p>A RESTful API that gives developers full control over every fax workflow. Webhooks push real-time delivery events the moment a fax lands — no polling required.</p>
+      </div>
+    </section>
+
+    <!-- Scene 4: Security -->
+    <section class="scene" data-scene="3">
+      <div class="scene-content" id="scene3">
+        <span class="scene-eyebrow">Security &amp; Compliance</span>
+        <h2>HIPAA. SOC 2.<br>PCI. Covered.</h2>
+        <p>AES-256 encryption on every transmission, at rest and in transit. Full audit trails, tamper-evident logs, and role-based access — on every plan.</p>
+        <div class="scene-stats">
+          <div class="stat-item">
+            <div class="stat-num">AES‑256</div>
+            <div class="stat-label">Encryption</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">SOC 2</div>
+            <div class="stat-label">Type II Certified</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 5: Global -->
+    <section class="scene" data-scene="4">
+      <div class="scene-content" id="scene4">
+        <span class="scene-eyebrow">Global Network</span>
+        <h2>Reach any fax machine on the planet.</h2>
+        <p>Direct carrier interconnects across 180+ countries. Intelligent failover reroutes in milliseconds when a carrier degrades — your faxes always arrive.</p>
+        <div class="scene-stats">
+          <div class="stat-item">
+            <div class="stat-num">180+</div>
+            <div class="stat-label">Countries</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">12</div>
+            <div class="stat-label">Global PoPs</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">Tier‑1</div>
+            <div class="stat-label">Carrier Peering</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <!-- /scroll-stage -->
+
+  <!-- =============================================
+       Post-scroll content (solid background)
+       ============================================= -->
+  <div class="post-stage">
+
+    <!-- Trusted By -->
+    <section class="trusted-section">
+      <p class="trusted-label">Trusted by leading telecom companies</p>
+      <div class="marquee-wrapper">
+        <div class="marquee-track">
+          <!-- Set 1 -->
+          <div class="marquee-item"><img src="Trusted by/ahoy-telecom-logo.svg"           alt="Ahoy Telecom" /></div>
+          <div class="marquee-item"><img src="Trusted by/vanbelkum-logo.svg"               alt="Vanbelkum" /></div>
+          <div class="marquee-item"><img src="Trusted by/teleVoIPs-300x105.webp"           alt="TeleVoIPs" /></div>
+          <div class="marquee-item"><img src="Trusted by/SpectrumVoIP-300x41.webp"         alt="SpectrumVoIP" /></div>
+          <div class="marquee-item"><img src="Trusted by/SAVECOM-TELECOM.webp"             alt="Savecom Telecom" /></div>
+          <div class="marquee-item"><img src="Trusted by/pointVOIP-300x87.webp"            alt="PointVoIP" /></div>
+          <div class="marquee-item"><img src="Trusted by/jivetel.webp"                     alt="Jivetel" /></div>
+          <div class="marquee-item"><img src="Trusted by/IN-TELECOM-300x64.webp"           alt="InTelecom" /></div>
+          <div class="marquee-item"><img src="Trusted by/CALLREVU-300x44.webp"             alt="CallRevu" /></div>
+          <div class="marquee-item"><img src="Trusted by/amplisys-logo-300x50.webp"        alt="Amplisys" /></div>
+          <div class="marquee-item"><img src="Trusted by/cloudco-logo.webp"                alt="CloudCo" /></div>
+          <div class="marquee-item"><img src="Trusted by/mi-communication-logo-300x98.webp" alt="MI Communication" /></div>
+          <!-- Set 2 — duplicate for seamless loop -->
+          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/ahoy-telecom-logo.svg"           alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/vanbelkum-logo.svg"               alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/teleVoIPs-300x105.webp"           alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/SpectrumVoIP-300x41.webp"         alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/SAVECOM-TELECOM.webp"             alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/pointVOIP-300x87.webp"            alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/jivetel.webp"                     alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/IN-TELECOM-300x64.webp"           alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/CALLREVU-300x44.webp"             alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/amplisys-logo-300x50.webp"        alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/cloudco-logo.webp"                alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/mi-communication-logo-300x98.webp" alt="" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         OUR SOLUTIONS
+         ═══════════════════════════════════════ -->
+    <section class="solutions-section" id="features">
+      <div class="solutions-header">
+        <div class="section-label">All-in-One Faxing. Reimagined.</div>
+        <h2 class="section-heading">Our Solutions</h2>
+        <p class="section-sub">A single platform to simplify management, cut costs, and support your customers at scale.</p>
+      </div>
+      <div class="solutions-grid">
+        <div class="solutions-card">
+          <div class="sol-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>e-Fax</h3>
+          <p>Send and receive faxes from a secure online portal — no extra hardware required.</p>
+        </div>
+        <div class="solutions-card">
+          <div class="sol-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h3>Analog</h3>
+          <p>Support traditional faxing without sacrificing security or productivity for main users.</p>
+        </div>
+        <div class="solutions-card">
+          <div class="sol-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Compliance</h3>
+          <p>Built-in compliance features help meet HIPAA and other regulatory demands in regulated industries.</p>
+        </div>
+        <div class="solutions-card">
+          <div class="sol-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3>Bring Your Own SIP Trunks</h3>
+          <p>Connect FAXedge to your preferred SIP provider and keep your current setup intact.</p>
+        </div>
+        <div class="solutions-card">
+          <div class="sol-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <h3>No Porting Required</h3>
+          <p>Maintain full ownership of your numbers with zero porting or rerouting needed.</p>
+        </div>
+        <div class="solutions-card">
+          <div class="sol-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3>Private Labeling</h3>
+          <p>Launch a fully branded fax platform for your customers — without building infrastructure from scratch.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         FRICTION SECTION
+         ═══════════════════════════════════════ -->
+    <section class="friction-section">
+      <div class="friction-bg">
+        <div class="solutions-header">
+          <div class="section-label">The Challenges We're Built to Fix</div>
+          <h2 class="section-heading">We Take the Friction<br>Out of Faxing</h2>
+          <p class="section-sub">From unpredictable costs to outdated tools, legacy fax platforms come with more problems than they solve. FAXedge changes that.</p>
+        </div>
+        <div class="friction-grid">
+          <div class="friction-card">
+            <div class="friction-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/><path d="M9 2h6M9 22h6"/></svg>
+            </div>
+            <h3>Complex Billing Models</h3>
+            <p>Other platforms charge by the page or the minute. With FAXedge, you get simple, predictable pricing — including a flat-rate option.</p>
+          </div>
+          <div class="friction-card">
+            <div class="friction-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h3>Inflexible Platforms</h3>
+            <p>Most faxing platforms don't support hybrid use, your SIP trunking, or reseller needs. Ours does — by design.</p>
+          </div>
+          <div class="friction-card">
+            <div class="friction-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>Lack of Control</h3>
+            <p>Most platforms limit how much you can customize or monitor. FAXedge puts you back in the driver's seat — fully.</p>
+          </div>
+        </div>
+        <div class="friction-cta-bar">
+          <p>Your faxing solution should work for you — not against you.</p>
+          <a href="#get-started" class="btn-primary">Get Started</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         PARTNER PROGRAM
+         ═══════════════════════════════════════ -->
+    <section class="partner-section">
+      <div class="partner-visual">
+        <div class="partner-visual-inner">
+          <div class="partner-badge">Partner Program</div>
+          <div class="partner-stat-stack">
+            <div class="partner-stat"><span>Flat-Rate</span>Pricing</div>
+            <div class="partner-stat"><span>White-Label</span>Branding</div>
+            <div class="partner-stat"><span>Sub-Reseller</span>Support</div>
+          </div>
+        </div>
+      </div>
+      <div class="partner-content">
+        <div class="section-label">Simplified, Scalable, White-Labeled</div>
+        <h2>Our Partner Program</h2>
+        <p>You shouldn't have to sacrifice control or margins to deliver a reliable faxing solution. Our partner program gives you what others don't: predictable pricing, branding flexibility, and support for sub-resellers.</p>
+        <ul class="sol-checklist">
+          <li><span class="check-icon">✓</span><div>Flat-rate pricing with no per-page or per-minute charges</div></li>
+          <li><span class="check-icon">✓</span><div>Full white-label capabilities and branding control</div></li>
+          <li><span class="check-icon">✓</span><div>Support for sub-resellers to expand your revenue</div></li>
+        </ul>
+        <div class="partner-actions">
+          <a href="#" class="btn-outline">Learn More</a>
+          <a href="#get-started" class="btn-primary">Get Started</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         WHY FAXEDGE
+         ═══════════════════════════════════════ -->
+    <section class="why-section">
+      <div class="why-content">
+        <div class="section-label">Designed to Support Your Growth</div>
+        <h2>Why FAXedge?</h2>
+        <p>No gimmicks. No limitations. Just reliable, secure faxing that lets you run your business the way you want — while saving time, money, and frustration.</p>
+        <ul class="sol-checklist">
+          <li><span class="check-icon">✓</span><div>Lower operating costs with flat-rate billing</div></li>
+          <li><span class="check-icon">✓</span><div>Seamless Netsapiens integration for unified workflows</div></li>
+          <li><span class="check-icon">✓</span><div>Built-in compliance for HIPAA, PCI, and SOC 2 standards</div></li>
+        </ul>
+        <a href="#get-started" class="btn-primary" style="margin-top:32px;display:inline-block;">Get Started</a>
+      </div>
+      <div class="why-visual">
+        <!-- CSS dashboard mockup -->
+        <div class="dashboard-mockup">
+          <div class="dash-titlebar">
+            <div class="dash-dots"><span></span><span></span><span></span></div>
+            <div class="dash-url">app.faxedge.com/dashboard</div>
+          </div>
+          <div class="dash-body">
+            <div class="dash-sidebar">
+              <div class="dash-logo-bar"><img src="FE-WHITE-SVG.svg" alt="FAXedge" style="height:14px;opacity:.7"/></div>
+              <div class="dash-nav-item active">Dashboard</div>
+              <div class="dash-nav-item">Accounts</div>
+              <div class="dash-nav-item">Numbers</div>
+              <div class="dash-nav-item">Devices</div>
+              <div class="dash-nav-item">Email Logs</div>
+              <div class="dash-nav-item">Reports</div>
+              <div class="dash-nav-item">Settings</div>
+            </div>
+            <div class="dash-main">
+              <div class="dash-title">FAXedge Dashboard</div>
+              <div class="dash-stats-row">
+                <div class="dash-stat-box"><div class="dsb-num">522</div><div class="dsb-lbl">Total Accounts</div></div>
+                <div class="dash-stat-box"><div class="dsb-num">1,690</div><div class="dsb-lbl">Total Users</div></div>
+                <div class="dash-stat-box"><div class="dsb-num">718</div><div class="dsb-lbl">Total Devices</div></div>
+                <div class="dash-stat-box"><div class="dsb-num">19.5k</div><div class="dsb-lbl">Total Numbers</div></div>
+              </div>
+              <div class="dash-chart-label">Fax Activity</div>
+              <div class="dash-chart">
+                <svg viewBox="0 0 300 80" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#2997ff" stop-opacity="0.5"/>
+                      <stop offset="100%" stop-color="#2997ff" stop-opacity="0.02"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,70 C30,60 50,20 80,15 C110,10 130,35 160,30 C190,25 220,50 260,45 C280,42 295,55 300,60 L300,80 L0,80 Z" fill="url(#chartGrad)"/>
+                  <path d="M0,70 C30,60 50,20 80,15 C110,10 130,35 160,30 C190,25 220,50 260,45 C280,42 295,55 300,60" fill="none" stroke="#2997ff" stroke-width="1.5"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         TESTIMONIAL
+         ═══════════════════════════════════════ -->
+    <section class="testimonial-section">
+      <div class="testimonial-inner">
+        <div class="testimonial-quote-mark">"</div>
+        <blockquote>
+          FAXedge is one of a very few providers that allows you to bring your own VoIP provider for both terminating and originating traffic. FAXedge's evolving platform gives you the ability to send and receive faxes via app, portal, and email. The FAXedge team is great to work with, and they'll treat you well.
+        </blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">FH</div>
+          <div>
+            <div class="testimonial-name">Fernando Hernandez</div>
+            <div class="testimonial-company">MI Communications</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="get-started">
+      <h2>Ready to modernize your fax infrastructure?</h2>
+      <p>Join hundreds of enterprises already running on FAXedge. No credit card required.</p>
+      <a href="#" class="btn-primary">Start Free Trial</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-top">
+        <a href="#" class="footer-logo">
+          <img src="FE-WHITE-SVG.svg" alt="FAXedge" class="footer-logo-img" />
+        </a>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#">Solutions</a>
+          <a href="#">Hardware</a>
+          <a href="#">Software</a>
+          <a href="#">Pricing</a>
+          <a href="#">Partners</a>
+          <a href="#">Docs &amp; API</a>
+          <a href="#">Support</a>
+          <a href="#">Company</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">Copyright &copy; 2026 FAXedge Technologies, Inc. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Legal</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <!-- /post-stage -->
+
+  <!-- =============================================
+       Scroll-driven scene animation
+       ============================================= -->
+  <script>
+    (function () {
+      const SCENE_COUNT = 5;
+      const scenes = [];
+
+      for (let i = 0; i < SCENE_COUNT; i++) {
+        const el = document.getElementById('scene' + i);
+        if (el) scenes.push(el);
+      }
+
+      // Scene 0 plays its CSS entrance animation on load.
+      // Once it finishes, remove the animation so JS inline-style
+      // opacity can take over and fade it out on scroll.
+      if (scenes[0]) {
+        scenes[0].addEventListener('animationend', () => {
+          scenes[0].style.animation = 'none';
+        }, { once: true });
+      }
+
+      let prevZone = -1;
+
+      function getScrollProgress() {
+        const stage = document.getElementById('scrollStage');
+        if (!stage) return 0;
+        const stageHeight = stage.offsetHeight - window.innerHeight;
+        return Math.max(0, Math.min(1, window.scrollY / stageHeight));
+      }
+
+      function updateScenes() {
+        const progress  = getScrollProgress();
+        const rawIndex  = progress * SCENE_COUNT;
+        const zoneIndex = Math.min(Math.floor(rawIndex), SCENE_COUNT - 1);
+        const zonePct   = rawIndex - Math.floor(rawIndex);
+
+        prevZone = zoneIndex;
+
+        scenes.forEach((el, i) => {
+          el.classList.remove('visible', 'exit');
+
+          if (i === zoneIndex) {
+            // Scene 0 fades out immediately on scroll (no fade-in needed).
+            // All other scenes fade in over first 15% and out over last 18%.
+            const op = (i === 0)
+              ? Math.max(0, 1 - (zonePct / 0.55))
+              : (zonePct < 0.15
+                  ? zonePct / 0.15
+                  : zonePct > 0.82
+                    ? 1 - (zonePct - 0.82) / 0.18
+                    : 1);
+            el.style.opacity = op.toString();
+            el.style.transform = 'translateY(0)';
+            el.classList.add('visible');
+          } else if (i < zoneIndex) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(-20px)';
+          } else {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(28px)';
+          }
+        });
+      }
+
+      let ticking = false;
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          requestAnimationFrame(function () { updateScenes(); ticking = false; });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      updateScenes();
+    })();
+  </script>
+
+
+</body>
+</html>
