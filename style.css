@@ -19,7 +19,11 @@
   padding: 0;
 }
 
-html { scroll-behavior: auto; }
+html {
+  scroll-behavior: auto;
+  overflow-x: hidden; /* prevent spline canvas from pushing page wider */
+  max-width: 100%;
+}
 
 body {
   background: var(--bg);
@@ -27,6 +31,7 @@ body {
   font-family: var(--font);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* =============================================
@@ -256,21 +261,23 @@ nav {
 
 .spline-bg {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;       /* vw instead of % — never exceeds viewport */
+  height: 100vh;
   z-index: 0;
-  width: 100%;
-  height: 100%;
   overflow: hidden;
-  /* Navy blue dramatic gradient behind the 3D object */
   background:
-    radial-gradient(ellipse 70% 60% at 50% 52%,  #0a1f44 0%, #060d1f 55%, #000000 100%);
+    radial-gradient(ellipse 70% 60% at 50% 52%, #0a1f44 0%, #060d1f 55%, #000000 100%);
 }
 
-/* spline-viewer fills the fixed background */
+/* spline-viewer: contain canvas strictly to viewport */
 .spline-bg spline-viewer {
   width: 100%;
   height: 100%;
+  max-width: 100vw;
   display: block;
+  overflow: hidden;
 }
 
 /* Watermark cover — solid strip over the Spline logo at bottom */
@@ -1366,6 +1373,10 @@ footer {
   .scene h1 { font-size: clamp(2.6rem, 10vw, 4rem); }
   .scene h2 { font-size: clamp(2rem, 8vw, 3.2rem); }
 
+  /* Scroll stage: keep scenes from overflowing */
+  .scroll-stage,
+  .scene { max-width: 100vw; overflow: hidden; }
+
   .features-grid {
     grid-template-columns: 1fr;
     border-radius: 16px;
@@ -1374,15 +1385,37 @@ footer {
   .features-section,
   .cta-section { padding: 80px 24px; }
 
-  footer { padding: 40px 24px; }
+  /* All post-stage sections: safe side padding */
+  .solutions-section,
+  .friction-section,
+  .partner-section,
+  .why-section,
+  .testimonial-section { padding-left: 20px; padding-right: 20px; }
 
+  /* Sections that use inner max-width containers */
+  .friction-bg,
+  .testimonial-inner { padding: 40px 24px; }
+
+  /* Stat rows: wrap on small screens */
+  .scene-stats { flex-wrap: wrap; justify-content: center; gap: 24px; }
+  #scene2 { width: 100%; min-height: unset; }
+
+  footer { padding: 40px 24px; }
   .footer-top { flex-direction: column; gap: 24px; text-align: center; }
   .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
 }
 
 @media (max-width: 480px) {
   .scene h1 { font-size: 2.4rem; }
+  .scene h2 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
   .scene-hero-actions { flex-direction: column; }
   .btn-primary, .btn-outline { width: 100%; text-align: center; }
-  .scene-stats { gap: 28px; }
+  .scene-stats { gap: 20px; }
+
+  /* Dashboard mockup: hide on very small screens to prevent overflow */
+  .why-visual { display: none; }
+  .why-section { grid-template-columns: 1fr; }
+
+  /* Partner visual: shrink */
+  .partner-visual { aspect-ratio: unset; padding: 40px 24px; }
 }
