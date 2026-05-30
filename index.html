@@ -585,11 +585,20 @@
       }
 
       let ticking = false;
-      window.addEventListener('scroll', function () {
+      function onScroll() {
         if (!ticking) {
           requestAnimationFrame(function () { updateScenes(); ticking = false; });
           ticking = true;
         }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // iOS Safari: scroll events fire off the main thread during touch.
+      // Dispatch a synthetic scroll event on touchmove so Spline's
+      // events-target="global" listener receives continuous updates.
+      window.addEventListener('touchmove', function () {
+        window.dispatchEvent(new Event('scroll'));
       }, { passive: true });
 
       updateScenes();

@@ -21,8 +21,8 @@
 
 html {
   scroll-behavior: auto;
-  overflow-x: hidden; /* prevent spline canvas from pushing page wider */
-  max-width: 100%;
+  /* Do NOT set overflow-x: hidden here — it breaks iOS scroll events
+     which Spline needs to trigger its scroll animation */
 }
 
 body {
@@ -30,8 +30,9 @@ body {
   color: var(--text-primary);
   font-family: var(--font);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-  max-width: 100%;
+  /* Clip horizontal overflow via a positioned wrapper instead */
+  position: relative;
+  overflow-x: clip; /* clip vs hidden: doesn't create a scroll container on iOS */
 }
 
 /* =============================================
