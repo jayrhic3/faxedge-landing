@@ -21,8 +21,6 @@
 
 html {
   scroll-behavior: auto;
-  /* Do NOT set overflow-x: hidden here — it breaks iOS scroll events
-     which Spline needs to trigger its scroll animation */
 }
 
 body {
@@ -30,9 +28,9 @@ body {
   color: var(--text-primary);
   font-family: var(--font);
   -webkit-font-smoothing: antialiased;
-  /* Clip horizontal overflow via a positioned wrapper instead */
-  position: relative;
-  overflow-x: clip; /* clip vs hidden: doesn't create a scroll container on iOS */
+  /* overflow-x on body only (not html) — safe on iOS,
+     doesn't intercept scroll events or create stacking issues */
+  overflow-x: hidden;
 }
 
 /* =============================================
@@ -1370,6 +1368,8 @@ footer {
    ============================================= */
 @media (max-width: 900px) {
   .nav-links { display: none; }
+  /* Prevent any nav children (dropdown etc.) from showing below bar on iOS */
+  nav { overflow: hidden; }
 
   .scene h1 { font-size: clamp(2.6rem, 10vw, 4rem); }
   .scene h2 { font-size: clamp(2rem, 8vw, 3.2rem); }

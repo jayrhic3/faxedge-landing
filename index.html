@@ -594,11 +594,28 @@
 
       window.addEventListener('scroll', onScroll, { passive: true });
 
-      // iOS Safari: scroll events fire off the main thread during touch.
-      // Dispatch a synthetic scroll event on touchmove so Spline's
-      // events-target="global" listener receives continuous updates.
-      window.addEventListener('touchmove', function () {
-        window.dispatchEvent(new Event('scroll'));
+      // iOS Safari: scroll position updates off the main thread during touch,
+      // so scroll events arrive late or infrequently. We poll scrollY on every
+      // animation frame while a touch is active and dispatch a real scroll event
+      // only when the position has actually changed — this keeps Spline in sync.
+      let isTouching = false;
+      let lastScrollY = -1;
+      function iosScrollPoll() {
+        if (!isTouching) return;
+        if (window.scrollY !== lastScrollY) {
+          lastScrollY = window.scrollY;
+          window.dispatchEvent(new Event('scroll'));
+          onScroll();
+        }
+        requestAnimationFrame(iosScrollPoll);
+      }
+      window.addEventListener('touchstart', function () {
+        isTouching = true;
+        lastScrollY = window.scrollY;
+        requestAnimationFrame(iosScrollPoll);
+      }, { passive: true });
+      window.addEventListener('touchend', function () {
+        isTouching = false;
       }, { passive: true });
 
       updateScenes();
