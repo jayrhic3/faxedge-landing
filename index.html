@@ -546,11 +546,13 @@
 
       let prevZone = -1;
 
+      // Spline steps: 5000 = exactly 5000px of scroll.
+      // scroll-stage height is calc(5000px + 100vh) so scrollable
+      // distance is always 5000px regardless of viewport size.
+      const SPLINE_STEPS = 5000;
+
       function getScrollProgress() {
-        const stage = document.getElementById('scrollStage');
-        if (!stage) return 0;
-        const stageHeight = stage.offsetHeight - window.innerHeight;
-        return Math.max(0, Math.min(1, window.scrollY / stageHeight));
+        return Math.max(0, Math.min(1, window.scrollY / SPLINE_STEPS));
       }
 
       function updateScenes() {

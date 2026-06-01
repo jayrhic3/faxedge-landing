@@ -301,12 +301,14 @@ nav {
   pointer-events: none;
 }
 
-/* The tall scroll container */
+/* The tall scroll container.
+   height: calc(5000px + 100vh) gives EXACTLY 5000px of scrollable
+   distance on every screen size — matches Spline's steps: 5000 perfectly.
+   (scrollable distance = offsetHeight - viewport = 5000px always) */
 .scroll-stage {
   position: relative;
   z-index: 10;
-  /* Each scene gets 100vh of scroll room */
-  height: calc(var(--scene-count) * 100vh);
+  height: calc(5000px + 100vh);
 }
 
 /* =============================================
