@@ -318,11 +318,13 @@ nav {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* Left-aligned like Dandy/Apple product pages —
+     text lives in left 48% so 3D object is never obscured */
+  align-items: flex-start;
   justify-content: center;
-  text-align: center;
-  padding: calc(var(--nav-height) + 20px) 24px 60px;
-  pointer-events: none; /* let scroll pass through */
+  text-align: left;
+  padding: calc(var(--nav-height) + 20px) 52% 60px 8vw;
+  pointer-events: none;
 }
 
 /* Scene content fades in/out via JS */
@@ -331,11 +333,12 @@ nav {
   transform: translateY(28px);
   transition: opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  max-width: 760px;
+  max-width: 600px;
+  width: 100%;
   pointer-events: auto;
 }
 
-/* Scene 0 — visible immediately on page load with a smooth entrance */
+/* Scene 0 — visible immediately on load */
 #scene0 {
   animation: heroEnter 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
 }
@@ -352,140 +355,162 @@ nav {
 
 .scene-content.exit {
   opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
+  transform: translateY(-16px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 /* =============================================
    Scene Typography — Apple-scale
    ============================================= */
+
+/* Eyebrow — small, muted, uppercase tag */
 .scene-eyebrow {
   display: block;
-  font-size: 0.85rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent-bright);
-  margin-bottom: 20px;
-}
-
-.scene h1 {
-  font-size: clamp(3rem, 8vw, 6.5rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.02;
-  color: var(--text-primary);
-  margin-bottom: 20px;
-}
-
-.scene h2 {
-  font-size: clamp(2.2rem, 5.5vw, 4.5rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1.06;
-  color: var(--text-primary);
-  margin-bottom: 20px;
-}
-
-.scene p {
-  font-size: clamp(1rem, 2vw, 1.3rem);
   color: var(--text-secondary);
-  line-height: 1.65;
-  max-width: 560px;
-  margin: 0 auto;
+  margin-bottom: 18px;
+}
+
+/* Hero H1 — huge, tight, dominant */
+.scene h1 {
+  font-size: clamp(4rem, 9vw, 8.5rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1.0;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+/* Scene H2 — large but secondary */
+.scene h2 {
+  font-size: clamp(2.8rem, 6vw, 6rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1.0;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+/* Scene body — short, muted, never competes with headline */
+.scene p {
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 440px;
+  font-weight: 400;
 }
 
 /* ── Per-scene vertical positioning ────────────────────────
-   Scene 0 : text TOP    — 3D object is positioned below
-   Scene 1 : text BOTTOM — 3D object is positioned above
-   Scene 2 : text BOTTOM — 3D object is positioned above
-   Scene 3 : text CENTER — 3D object expands & fades in center
+   Scene 0 : text TOP    — 3D object is below
+   Scene 1 : text BOTTOM — 3D object is above
+   Scene 2 : text BOTTOM — 3D object is above
+   Scene 3 : text CENTER — 3D object expands & fades
    Scene 4 : text CENTER — 3D object gone
    ──────────────────────────────────────────────────────── */
-
-/* Scene 0 — hero text at the top */
 .scene[data-scene="0"] {
   justify-content: flex-start;
-  padding-top: calc(var(--nav-height) + 6vh);
-  padding-bottom: 0;
+  padding-top: calc(var(--nav-height) + 8vh);
 }
 
-/* Scenes 1 & 2 — text pinned to the bottom of the viewport */
 .scene[data-scene="1"],
 .scene[data-scene="2"] {
   justify-content: flex-end;
-  padding-top: 0;
   padding-bottom: 10vh;
 }
 
-/* Scenes 3 & 4 — text centered */
 .scene[data-scene="3"],
 .scene[data-scene="4"] {
   justify-content: center;
-  padding-bottom: 0;
 }
 
-/* Match scene 2 (API-First) container to scene 1 (Gateway Core) — 760×454 */
 #scene2 {
-  width: 760px;
+  width: 100%;
   min-height: 454px;
 }
 
-
-/* Scene 1 CTA buttons */
+/* ── Hero CTA buttons ───────────────────────────── */
 .scene-hero-actions {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 36px;
+  gap: 12px;
+  margin-top: 40px;
   flex-wrap: wrap;
 }
 
+/* Apple-style pill primary button */
 .btn-primary {
-  padding: 14px 28px;
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 26px;
   background: var(--accent-bright);
   color: #fff;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
   border: none;
   border-radius: 980px;
   cursor: pointer;
   text-decoration: none;
-  transition: opacity 0.2s, transform 0.2s;
-  letter-spacing: -0.01em;
+  transition: background 0.2s ease;
+  white-space: nowrap;
 }
 
 .btn-primary:hover {
-  opacity: 0.85;
-  transform: scale(1.02);
+  background: #1a8aff;
 }
 
-.btn-outline {
-  padding: 13px 26px;
+/* Apple "Learn More ›" — text link with arrow, no border/bg */
+.btn-learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 13px 4px;
   background: transparent;
   color: var(--accent-bright);
-  font-size: 0.95rem;
-  font-weight: 600;
-  border: 1.5px solid rgba(41, 151, 255, 0.5);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.btn-learn-more:hover { opacity: 0.7; }
+
+/* Ghost outline button — used in post-stage sections */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 26px;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  border: 1.5px solid rgba(255,255,255,0.25);
   border-radius: 980px;
   cursor: pointer;
   text-decoration: none;
   transition: border-color 0.2s, background 0.2s;
-  letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 
 .btn-outline:hover {
-  border-color: var(--accent-bright);
-  background: rgba(41, 151, 255, 0.08);
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.06);
 }
 
 /* Scroll hint arrow */
 .scroll-hint {
   position: absolute;
   bottom: 36px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 8vw;
+  transform: none;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1371,8 +1396,20 @@ footer {
   /* Prevent any nav children (dropdown etc.) from showing below bar on iOS */
   nav { overflow: hidden; }
 
-  .scene h1 { font-size: clamp(2.6rem, 10vw, 4rem); }
-  .scene h2 { font-size: clamp(2rem, 8vw, 3.2rem); }
+  /* On mobile: full-width text, centered, larger padding */
+  .scene {
+    align-items: center;
+    text-align: center;
+    padding: calc(var(--nav-height) + 16px) 24px 60px;
+  }
+
+  .scene p { max-width: 100%; }
+
+  .scene h1 { font-size: clamp(2.8rem, 10vw, 4.5rem); }
+  .scene h2 { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+
+  .scene-hero-actions { justify-content: center; }
+  .scroll-hint { left: 50%; transform: translateX(-50%); }
 
   /* Scroll stage: keep scenes from overflowing */
   .scroll-stage,
