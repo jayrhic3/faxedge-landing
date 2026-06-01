@@ -415,7 +415,11 @@ nav {
   text-align: center;
   justify-content: flex-start;
   padding-top: calc(var(--nav-height) + 8vh);
-  padding-right: 8vw; /* match left padding so it's truly centered */
+  padding-right: 8vw;
+}
+
+.scene[data-scene="0"] p {
+  margin: 0 auto;
 }
 
 .scene[data-scene="1"],
