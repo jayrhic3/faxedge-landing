@@ -262,9 +262,11 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;       /* vw instead of % — never exceeds viewport */
+  width: 100vw;
   height: 100vh;
-  z-index: 0;
+  /* z-index 5: above scene 0 (z-index 3) so 3D covers the hero text,
+     but below scenes 1-4 (z-index 10) so text stays readable */
+  z-index: 5;
   overflow: hidden;
   background:
     radial-gradient(ellipse 70% 60% at 50% 52%, #0a1f44 0%, #060d1f 55%, #000000 100%);
@@ -301,11 +303,11 @@ nav {
   pointer-events: none;
 }
 
-/* The tall scroll container */
+/* The tall scroll container —
+   No z-index here so each scene can set its own level
+   independently within the root stacking context */
 .scroll-stage {
   position: relative;
-  z-index: 10;
-  /* Each scene gets 100vh of scroll room */
   height: calc(var(--scene-count) * 100vh);
 }
 
@@ -416,10 +418,20 @@ nav {
   justify-content: flex-start;
   padding-top: calc(var(--nav-height) + 8vh);
   padding-right: 8vw;
+  /* Behind the 3D object — creates the cinematic cover effect on scroll */
+  z-index: 3;
 }
 
 .scene[data-scene="0"] p {
   margin: 0 auto;
+}
+
+/* Scenes 1-4 sit in FRONT of the 3D object so text is always readable */
+.scene[data-scene="1"],
+.scene[data-scene="2"],
+.scene[data-scene="3"],
+.scene[data-scene="4"] {
+  z-index: 10;
 }
 
 .scene[data-scene="1"],
