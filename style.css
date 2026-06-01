@@ -262,11 +262,9 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100vw;       /* vw instead of % — never exceeds viewport */
   height: 100vh;
-  /* z-index 5: above scene 0 (z-index 3) so 3D covers the hero text,
-     but below scenes 1-4 (z-index 10) so text stays readable */
-  z-index: 5;
+  z-index: 0;
   overflow: hidden;
   background:
     radial-gradient(ellipse 70% 60% at 50% 52%, #0a1f44 0%, #060d1f 55%, #000000 100%);
@@ -303,11 +301,11 @@ nav {
   pointer-events: none;
 }
 
-/* The tall scroll container —
-   No z-index here so each scene can set its own level
-   independently within the root stacking context */
+/* The tall scroll container */
 .scroll-stage {
   position: relative;
+  z-index: 10;
+  /* Each scene gets 100vh of scroll room */
   height: calc(var(--scene-count) * 100vh);
 }
 
@@ -412,14 +410,12 @@ nav {
    Scene 3 : text CENTER — 3D object expands & fades
    Scene 4 : text CENTER — 3D object gone
    ──────────────────────────────────────────────────────── */
-/* Scene 0 — hero text at top, 3D object visible behind/below */
 .scene[data-scene="0"] {
   align-items: center;
   text-align: center;
   justify-content: flex-start;
   padding-top: calc(var(--nav-height) + 8vh);
   padding-right: 8vw;
-  z-index: 10;
 }
 
 .scene[data-scene="0"] p {
