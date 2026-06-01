@@ -412,26 +412,18 @@ nav {
    Scene 3 : text CENTER — 3D object expands & fades
    Scene 4 : text CENTER — 3D object gone
    ──────────────────────────────────────────────────────── */
+/* Scene 0 — hero text at top, 3D object visible behind/below */
 .scene[data-scene="0"] {
   align-items: center;
   text-align: center;
   justify-content: flex-start;
   padding-top: calc(var(--nav-height) + 8vh);
   padding-right: 8vw;
-  /* Behind the 3D object — creates the cinematic cover effect on scroll */
-  z-index: 3;
+  z-index: 10;
 }
 
 .scene[data-scene="0"] p {
   margin: 0 auto;
-}
-
-/* Scenes 1-4 sit in FRONT of the 3D object so text is always readable */
-.scene[data-scene="1"],
-.scene[data-scene="2"],
-.scene[data-scene="3"],
-.scene[data-scene="4"] {
-  z-index: 10;
 }
 
 .scene[data-scene="1"],
