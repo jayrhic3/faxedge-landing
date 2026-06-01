@@ -411,8 +411,11 @@ nav {
    Scene 4 : text CENTER — 3D object gone
    ──────────────────────────────────────────────────────── */
 .scene[data-scene="0"] {
+  align-items: center;
+  text-align: center;
   justify-content: flex-start;
   padding-top: calc(var(--nav-height) + 8vh);
+  padding-right: 8vw; /* match left padding so it's truly centered */
 }
 
 .scene[data-scene="1"],
@@ -435,6 +438,7 @@ nav {
 .scene-hero-actions {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   margin-top: 40px;
   flex-wrap: wrap;
