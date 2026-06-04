@@ -393,6 +393,23 @@
           events-target="global"
           class="ata-spline"
         ></spline-viewer>
+
+        <!-- 360 rotation hint — fades out on first interaction -->
+        <div class="rotate-hint" id="rotateHint">
+          <div class="rotate-hint-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <!-- circular arrow -->
+              <path d="M14 4C8.477 4 4 8.477 4 14s4.477 10 10 10 10-4.477 10-10"
+                stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+              <!-- arrowhead -->
+              <path d="M24 4l-1 5-5-1"
+                stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- finger/cursor -->
+              <circle cx="14" cy="14" r="2" fill="white" opacity="0.7"/>
+            </svg>
+          </div>
+          <span>Drag to rotate</span>
+        </div>
       </div>
     </section>
 
@@ -571,6 +588,19 @@
     })();
   </script>
 
+  <!-- Rotate hint: dismiss on first interaction with the ATA viewer -->
+  <script>
+    (function () {
+      const hint   = document.getElementById('rotateHint');
+      const viewer = document.querySelector('.ata-viewer');
+      if (!hint || !viewer) return;
+      function dismiss() {
+        hint.classList.add('dismissed');
+      }
+      viewer.addEventListener('mousedown',  dismiss, { once: true });
+      viewer.addEventListener('touchstart', dismiss, { once: true, passive: true });
+    })();
+  </script>
 
 </body>
 </html>
