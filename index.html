@@ -38,6 +38,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <!-- Always start at the top of the page on refresh -->
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.addEventListener('beforeunload', function () { window.scrollTo(0, 0); });
+    window.addEventListener('load', function () { window.scrollTo(0, 0); });
+  </script>
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.96/build/spline-viewer.js"></script>
 </head>
 <body>
