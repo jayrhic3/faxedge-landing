@@ -674,7 +674,206 @@ nav {
 }
 
 /* =============================================
-   Our Solutions — tabbed
+   Stat Strip
+   ============================================= */
+.stat-strip {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  padding: 56px 48px;
+}
+
+.stat-strip-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.strip-stat { text-align: center; flex: 1; }
+
+.strip-num {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.strip-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  letter-spacing: 0.04em;
+}
+
+.strip-divider {
+  width: 1px;
+  height: 48px;
+  background: rgba(255,255,255,0.1);
+  flex-shrink: 0;
+}
+
+/* =============================================
+   Combined Proof Section
+   ============================================= */
+.proof-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px 48px;
+  align-items: start;
+}
+
+/* Left */
+.proof-left { display: flex; flex-direction: column; gap: 32px; }
+
+.proof-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  filter: drop-shadow(0 20px 60px rgba(0,0,0,0.5));
+}
+
+.proof-left-copy h2 {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.proof-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.proof-list li {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.proof-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent-bright);
+  font-weight: 700;
+}
+
+/* Right */
+.proof-right {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 8px;
+}
+
+.proof-partner h3 {
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 10px 0 12px;
+  color: var(--text-primary);
+}
+
+.proof-partner p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.proof-partner-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Quote */
+.proof-quote {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 28px 32px;
+  position: relative;
+}
+
+.quote-icon {
+  color: var(--accent-bright);
+  margin-bottom: 12px;
+}
+
+.proof-quote blockquote {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  border: none;
+  padding: 0;
+}
+
+.proof-quote-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.proof-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent) 0%, #7b61ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.proof-author-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.proof-author-co {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .stat-strip { padding: 40px 24px; }
+  .stat-strip-inner { flex-wrap: wrap; gap: 32px; }
+  .strip-divider { display: none; }
+  .strip-stat { min-width: 40%; }
+  .proof-section { grid-template-columns: 1fr; padding: 60px 24px; gap: 48px; }
+}
+
+/* =============================================
+   DEAD CODE — old sections removed
+   (solutions, friction, partner, why, testimonial)
+   ============================================= */
+/* placeholder kept intentionally empty */
+
+/* =============================================
+   Old Solutions — tabbed (removed)
    ============================================= */
 .solutions-section {
   padding: 120px 48px;
