@@ -535,56 +535,44 @@
         if (el) scenes.push(el);
       }
 
-      // Scene 0 plays its CSS entrance animation on load.
-      // Once it finishes, remove the animation so JS inline-style
-      // opacity can take over and fade it out on scroll.
+      // Scene 0: once the CSS entrance animation ends, remove it
+      // so the .visible class can fully control opacity from here on.
       if (scenes[0]) {
         scenes[0].addEventListener('animationend', () => {
           scenes[0].style.animation = 'none';
         }, { once: true });
       }
 
-      let prevZone = -1;
-
       // Spline steps: 5000 = exactly 5000px of scroll.
-      // scroll-stage height is calc(5000px + 100vh) so scrollable
-      // distance is always 5000px regardless of viewport size.
       const SPLINE_STEPS = 5000;
 
       function getScrollProgress() {
         return Math.max(0, Math.min(1, window.scrollY / SPLINE_STEPS));
       }
 
+      let activeZone = -1;
+
       function updateScenes() {
         const progress  = getScrollProgress();
         const rawIndex  = progress * SCENE_COUNT;
         const zoneIndex = Math.min(Math.floor(rawIndex), SCENE_COUNT - 1);
-        const zonePct   = rawIndex - Math.floor(rawIndex);
 
-        prevZone = zoneIndex;
+        // Only update when the zone actually changes —
+        // let CSS transition: 0.6s ease-in-out handle the fade,
+        // matching Spline's 600ms transition so they stay in sync
+        // at any scroll speed.
+        if (zoneIndex === activeZone) return;
+        activeZone = zoneIndex;
 
         scenes.forEach((el, i) => {
-          el.classList.remove('visible', 'exit');
+          // Clear any lingering inline styles so CSS transition takes over
+          el.style.opacity = '';
+          el.style.transform = '';
 
           if (i === zoneIndex) {
-            // Scene 0 fades out immediately on scroll (no fade-in needed).
-            // All other scenes fade in over first 15% and out over last 18%.
-            const op = (i === 0)
-              ? Math.max(0, 1 - (zonePct / 0.55))
-              : (zonePct < 0.15
-                  ? zonePct / 0.15
-                  : zonePct > 0.82
-                    ? 1 - (zonePct - 0.82) / 0.18
-                    : 1);
-            el.style.opacity = op.toString();
-            el.style.transform = 'translateY(0)';
             el.classList.add('visible');
-          } else if (i < zoneIndex) {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(-20px)';
           } else {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(28px)';
+            el.classList.remove('visible');
           }
         });
       }
