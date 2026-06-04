@@ -514,7 +514,7 @@ nav {
   align-items: center;
   text-align: center;
   justify-content: flex-start;
-  padding-top: calc(var(--nav-height) + 3vh);
+  padding-top: calc(var(--nav-height) + 9vh);
   padding-right: 8vw;
 }
 
