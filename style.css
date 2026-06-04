@@ -430,7 +430,15 @@ nav {
   padding-bottom: 10vh;
 }
 
-.scene[data-scene="3"],
+/* Scene 3 — text on RIGHT so 3D object (left/center) is fully visible */
+.scene[data-scene="3"] {
+  justify-content: center;
+  align-items: flex-end;
+  text-align: left;
+  padding-left: 52%;
+  padding-right: 8vw;
+}
+
 .scene[data-scene="4"] {
   justify-content: center;
 }
