@@ -550,31 +550,45 @@
         return Math.max(0, Math.min(1, window.scrollY / SPLINE_STEPS));
       }
 
-      let activeZone = -1;
+      let activeZone    = -1;
+      let pendingZone   = -1;
+      let switchTimer   = null;
+      const SWITCH_DELAY = 300; // ms — half of Spline's 600ms transition,
+                                // prevents text from jumping ahead on fast scroll
 
-      function updateScenes() {
-        const progress  = getScrollProgress();
-        const rawIndex  = progress * SCENE_COUNT;
-        const zoneIndex = Math.min(Math.floor(rawIndex), SCENE_COUNT - 1);
-
-        // Only update when the zone actually changes —
-        // let CSS transition: 0.6s ease-in-out handle the fade,
-        // matching Spline's 600ms transition so they stay in sync
-        // at any scroll speed.
-        if (zoneIndex === activeZone) return;
+      function applyZone(zoneIndex) {
         activeZone = zoneIndex;
-
         scenes.forEach((el, i) => {
-          // Clear any lingering inline styles so CSS transition takes over
-          el.style.opacity = '';
+          el.style.opacity  = '';
           el.style.transform = '';
-
           if (i === zoneIndex) {
             el.classList.add('visible');
           } else {
             el.classList.remove('visible');
           }
         });
+      }
+
+      function updateScenes() {
+        const progress  = getScrollProgress();
+        const rawIndex  = progress * SCENE_COUNT;
+        const zoneIndex = Math.min(Math.floor(rawIndex), SCENE_COUNT - 1);
+
+        if (zoneIndex === activeZone) return; // already showing correct zone
+
+        // If same pending zone is already queued, let it fire naturally
+        if (zoneIndex === pendingZone) return;
+
+        // Cancel any queued switch — user scrolled further before it fired
+        clearTimeout(switchTimer);
+        pendingZone = zoneIndex;
+
+        // Short delay before switching text so fast scroll doesn't
+        // make text disappear before Spline finishes its transition
+        switchTimer = setTimeout(() => {
+          applyZone(zoneIndex);
+          pendingZone = -1;
+        }, SWITCH_DELAY);
       }
 
       let ticking = false;
