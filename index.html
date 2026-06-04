@@ -386,11 +386,12 @@
         </div>
       </div>
 
-      <!-- Right: Spline 3D viewer -->
-      <div class="ata-viewer">
+      <!-- Right: Spline 3D viewer.
+           No events-target="global" — this object is click-driven (mouse down),
+           so it must NOT respond to page scroll. -->
+      <div class="ata-viewer" id="ataViewer">
         <spline-viewer
           url="https://prod.spline.design/0qed5KHXLCVABoV8/scene.splinecode"
-          events-target="global"
           class="ata-spline"
         ></spline-viewer>
 
@@ -591,17 +592,28 @@
     })();
   </script>
 
-  <!-- Rotate hint: dismiss on first interaction with the ATA viewer -->
+  <!-- ATA viewer interaction -->
   <script>
     (function () {
       const hint   = document.getElementById('rotateHint');
-      const viewer = document.querySelector('.ata-viewer');
-      if (!hint || !viewer) return;
+      const viewer = document.getElementById('ataViewer');
+      if (!viewer) return;
+
+      // Dismiss the "Click to rotate" hint on first interaction
       function dismiss() {
-        hint.classList.add('dismissed');
+        if (hint) hint.classList.add('dismissed');
       }
       viewer.addEventListener('mousedown',  dismiss, { once: true });
       viewer.addEventListener('touchstart', dismiss, { once: true, passive: true });
+
+      // Stop wheel events from reaching the Spline canvas so scrolling
+      // over the object scrolls the PAGE instead of zooming/moving the 3D scene.
+      // Capture phase fires before the event enters the shadow-DOM canvas;
+      // stopPropagation blocks it there, but we DON'T preventDefault, so the
+      // page still scrolls normally. Clicks (mousedown) are untouched.
+      viewer.addEventListener('wheel', function (e) {
+        e.stopPropagation();
+      }, { capture: true, passive: true });
     })();
   </script>
 
