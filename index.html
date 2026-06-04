@@ -121,10 +121,38 @@
             <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </button>
+
+        <!-- Mobile hamburger toggle -->
+        <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
       </div>
 
     </div>
   </nav>
+
+  <!-- =============================================
+       Mobile Menu Panel
+       ============================================= -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-menu-nav" aria-label="Mobile navigation">
+      <a href="#" class="mobile-menu-link">Solutions</a>
+      <div class="mobile-submenu">
+        <a href="#">Platform</a>
+        <a href="#">Industries</a>
+        <a href="#">Use Cases</a>
+        <a href="#">FAXedge ATA</a>
+      </div>
+      <a href="#" class="mobile-menu-link">Hardware</a>
+      <a href="#" class="mobile-menu-link">Software</a>
+      <a href="#" class="mobile-menu-link">Pricing</a>
+      <a href="#" class="mobile-menu-link">Partners</a>
+      <a href="#" class="mobile-menu-link">Support</a>
+      <a href="#" class="mobile-menu-link">Login</a>
+      <a href="#get-started" class="btn-primary mobile-menu-cta">Get Started</a>
+    </nav>
+  </div>
 
   <!-- =============================================
        Fixed 3D Background (Spline)
@@ -624,6 +652,34 @@
       viewer.addEventListener('wheel', function (e) {
         e.stopPropagation();
       }, { capture: true, passive: true });
+    })();
+  </script>
+
+  <!-- Mobile menu toggle -->
+  <script>
+    (function () {
+      const burger = document.getElementById('navBurger');
+      const menu   = document.getElementById('mobileMenu');
+      if (!burger || !menu) return;
+
+      function close() {
+        menu.classList.remove('open');
+        burger.classList.remove('active');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+      function toggle() {
+        const isOpen = menu.classList.toggle('open');
+        burger.classList.toggle('active', isOpen);
+        burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      }
+
+      burger.addEventListener('click', toggle);
+      // Close when any menu link is tapped
+      menu.querySelectorAll('a').forEach(a =>
+        a.addEventListener('click', close)
+      );
     })();
   </script>
 
