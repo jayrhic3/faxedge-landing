@@ -520,6 +520,7 @@ nav {
 
 .scene[data-scene="0"] p {
   margin: 0 auto;
+  max-width: none; /* allow the subheader to sit on one line */
 }
 
 .scene[data-scene="1"],
