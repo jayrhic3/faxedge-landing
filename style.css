@@ -1305,6 +1305,19 @@ nav {
   display: block;
 }
 
+/* Covers "Built with Spline" watermark — bottom-right corner of ATA viewer */
+.ata-watermark-cover {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  height: 52px;
+  background: linear-gradient(to left, #060d1f 40%, transparent 100%);
+  z-index: 10;
+  pointer-events: none;
+  border-radius: 0 0 24px 0;
+}
+
 /* 360 rotation hint badge */
 .rotate-hint {
   position: absolute;
