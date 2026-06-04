@@ -514,7 +514,7 @@ nav {
   align-items: center;
   text-align: center;
   justify-content: flex-start;
-  padding-top: calc(var(--nav-height) + 8vh);
+  padding-top: calc(var(--nav-height) + 3vh);
   padding-right: 8vw;
 }
 
@@ -552,7 +552,7 @@ nav {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin-top: 40px;
+  margin-top: 28px;
   flex-wrap: wrap;
 }
 
