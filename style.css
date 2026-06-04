@@ -484,12 +484,12 @@ nav {
   margin-bottom: 24px;
 }
 
-/* Scene H2 — large but secondary */
+/* Scene H2 — matches the hero H1 size for a consistent feel across scenes */
 .scene h2 {
-  font-size: clamp(2.8rem, 6vw, 6rem);
+  font-size: clamp(3.5rem, 5vw, 4rem);
   font-weight: 700;
-  letter-spacing: -0.05em;
-  line-height: 1.0;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
   color: var(--text-primary);
   margin-bottom: 20px;
 }
@@ -1719,8 +1719,8 @@ footer {
   }
   .scroll-stage { max-width: 100vw; }
   .scene p { max-width: 100%; margin-left: auto; margin-right: auto; }
-  .scene h1 { font-size: clamp(3rem, 11vw, 4.5rem); }
-  .scene h2 { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+  .scene h1,
+  .scene h2 { font-size: clamp(2.6rem, 8vw, 3.4rem); }
   .scene-hero-actions { justify-content: center; }
 
   /* Security scene (3) text was right-aligned on desktop → recenter */
@@ -1772,8 +1772,8 @@ footer {
    PHONE  ( ≤ 480px )
    ═══════════════════════════════════════════ */
 @media (max-width: 480px) {
-  .scene h1 { font-size: clamp(2.6rem, 12vw, 3.4rem); }
-  .scene h2 { font-size: clamp(1.8rem, 9vw, 2.4rem); }
+  .scene h1,
+  .scene h2 { font-size: clamp(2.2rem, 10vw, 2.8rem); }
   .scene p  { font-size: 0.95rem; }
 
   /* Stack hero CTAs full-width */
