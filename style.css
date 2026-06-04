@@ -354,10 +354,6 @@ nav {
   that fade in/out as their scroll zone passes.
 */
 
-/* ⚠️ TEMP (positioning test) — hide all hero scene text so the 3D object
-   is fully visible. Remove this block to restore the banner texts. */
-.scene-content { display: none !important; }
-
 .spline-bg {
   position: fixed;
   top: 0;
