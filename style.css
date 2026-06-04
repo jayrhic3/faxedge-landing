@@ -1294,7 +1294,8 @@ nav {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
-  overflow: hidden;
+  /* overflow: visible so 3D object isn't clipped during state transitions */
+  overflow: visible;
   border-radius: 24px;
   background: radial-gradient(ellipse 80% 80% at 50% 50%, #0a1f44 0%, #060d1f 60%, #000 100%);
 }
