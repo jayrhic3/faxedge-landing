@@ -550,16 +550,28 @@
         return Math.max(0, Math.min(1, window.scrollY / SPLINE_STEPS));
       }
 
-      let activeZone    = -1;
-      let pendingZone   = -1;
-      let switchTimer   = null;
-      const SWITCH_DELAY = 300; // ms — half of Spline's 600ms transition,
-                                // prevents text from jumping ahead on fast scroll
+      let activeZone  = -1;
+      let pendingZone = -1;
+      let switchTimer = null;
+      let prevScrollY = window.scrollY;
+      let scrollDir   = 'down'; // 'up' | 'down'
+
+      // Spline transition per state = 600ms.
+      // Scrolling DOWN: text waits 300ms (half-transition) → both arrive together.
+      // Scrolling UP: Spline must reverse through N states × 600ms each,
+      //   so we wait longer — capped at 800ms to stay usable.
+      function getSwitchDelay(fromZone, toZone) {
+        if (scrollDir === 'up') {
+          const statesBack = Math.max(1, fromZone - toZone);
+          return Math.min(800, statesBack * 300);
+        }
+        return 300;
+      }
 
       function applyZone(zoneIndex) {
         activeZone = zoneIndex;
         scenes.forEach((el, i) => {
-          el.style.opacity  = '';
+          el.style.opacity   = '';
           el.style.transform = '';
           if (i === zoneIndex) {
             el.classList.add('visible');
@@ -570,25 +582,25 @@
       }
 
       function updateScenes() {
+        // Track scroll direction before computing progress
+        scrollDir   = window.scrollY < prevScrollY ? 'up' : 'down';
+        prevScrollY = window.scrollY;
+
         const progress  = getScrollProgress();
         const rawIndex  = progress * SCENE_COUNT;
         const zoneIndex = Math.min(Math.floor(rawIndex), SCENE_COUNT - 1);
 
-        if (zoneIndex === activeZone) return; // already showing correct zone
-
-        // If same pending zone is already queued, let it fire naturally
+        if (zoneIndex === activeZone)  return;
         if (zoneIndex === pendingZone) return;
 
-        // Cancel any queued switch — user scrolled further before it fired
         clearTimeout(switchTimer);
         pendingZone = zoneIndex;
 
-        // Short delay before switching text so fast scroll doesn't
-        // make text disappear before Spline finishes its transition
+        const delay = getSwitchDelay(activeZone, zoneIndex);
         switchTimer = setTimeout(() => {
           applyZone(zoneIndex);
           pendingZone = -1;
-        }, SWITCH_DELAY);
+        }, delay);
       }
 
       let ticking = false;
