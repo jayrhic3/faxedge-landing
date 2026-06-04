@@ -9,10 +9,10 @@
   <!-- ═══════════════════════════════════════
        Favicons
        ═══════════════════════════════════════ -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
   <!-- ═══════════════════════════════════════
        Open Graph — social link previews
@@ -37,8 +37,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.96/build/spline-viewer.js"></script>
+  <!-- style.css + all JS bundled via Vite from /src/main.js -->
+  <script type="module" src="/src/main.js"></script>
 </head>
 <body>
 
@@ -50,7 +50,7 @@
 
       <!-- Logo -->
       <a href="#" class="nav-logo">
-        <img src="FE-WHITE-SVG.svg" alt="FAXedge" class="nav-logo-img" />
+        <img src="/FE-WHITE-SVG.svg" alt="FAXedge" class="nav-logo-img" />
       </a>
 
       <!-- Links -->
@@ -155,15 +155,10 @@
   </div>
 
   <!-- =============================================
-       Fixed 3D Background (Spline)
+       Fixed 3D Background (Three.js — MacBook GLB)
        ============================================= -->
   <div class="spline-bg" aria-hidden="true">
-    <spline-viewer
-      url="https://prod.spline.design/k8mgz0MkNWlV-ZeG/scene.splinecode"
-      events-target="global"
-    ></spline-viewer>
-    <!-- covers the Spline watermark at bottom -->
-    <div class="spline-watermark-cover"></div>
+    <canvas id="heroCanvas"></canvas>
   </div>
 
   <!-- =============================================
@@ -280,31 +275,31 @@
       <div class="marquee-wrapper">
         <div class="marquee-track">
           <!-- Set 1 -->
-          <div class="marquee-item"><img src="Trusted by/ahoy-telecom-logo.svg"           alt="Ahoy Telecom" /></div>
-          <div class="marquee-item"><img src="Trusted by/vanbelkum-logo.svg"               alt="Vanbelkum" /></div>
-          <div class="marquee-item"><img src="Trusted by/teleVoIPs-300x105.webp"           alt="TeleVoIPs" /></div>
-          <div class="marquee-item"><img src="Trusted by/SpectrumVoIP-300x41.webp"         alt="SpectrumVoIP" /></div>
-          <div class="marquee-item"><img src="Trusted by/SAVECOM-TELECOM.webp"             alt="Savecom Telecom" /></div>
-          <div class="marquee-item"><img src="Trusted by/pointVOIP-300x87.webp"            alt="PointVoIP" /></div>
-          <div class="marquee-item"><img src="Trusted by/jivetel.webp"                     alt="Jivetel" /></div>
-          <div class="marquee-item"><img src="Trusted by/IN-TELECOM-300x64.webp"           alt="InTelecom" /></div>
-          <div class="marquee-item"><img src="Trusted by/CALLREVU-300x44.webp"             alt="CallRevu" /></div>
-          <div class="marquee-item"><img src="Trusted by/amplisys-logo-300x50.webp"        alt="Amplisys" /></div>
-          <div class="marquee-item"><img src="Trusted by/cloudco-logo.webp"                alt="CloudCo" /></div>
-          <div class="marquee-item"><img src="Trusted by/mi-communication-logo-300x98.webp" alt="MI Communication" /></div>
+          <div class="marquee-item"><img src="/trusted-by/ahoy-telecom-logo.svg"           alt="Ahoy Telecom" /></div>
+          <div class="marquee-item"><img src="/trusted-by/vanbelkum-logo.svg"               alt="Vanbelkum" /></div>
+          <div class="marquee-item"><img src="/trusted-by/teleVoIPs-300x105.webp"           alt="TeleVoIPs" /></div>
+          <div class="marquee-item"><img src="/trusted-by/SpectrumVoIP-300x41.webp"         alt="SpectrumVoIP" /></div>
+          <div class="marquee-item"><img src="/trusted-by/SAVECOM-TELECOM.webp"             alt="Savecom Telecom" /></div>
+          <div class="marquee-item"><img src="/trusted-by/pointVOIP-300x87.webp"            alt="PointVoIP" /></div>
+          <div class="marquee-item"><img src="/trusted-by/jivetel.webp"                     alt="Jivetel" /></div>
+          <div class="marquee-item"><img src="/trusted-by/IN-TELECOM-300x64.webp"           alt="InTelecom" /></div>
+          <div class="marquee-item"><img src="/trusted-by/CALLREVU-300x44.webp"             alt="CallRevu" /></div>
+          <div class="marquee-item"><img src="/trusted-by/amplisys-logo-300x50.webp"        alt="Amplisys" /></div>
+          <div class="marquee-item"><img src="/trusted-by/cloudco-logo.webp"                alt="CloudCo" /></div>
+          <div class="marquee-item"><img src="/trusted-by/mi-communication-logo-300x98.webp" alt="MI Communication" /></div>
           <!-- Set 2 — duplicate for seamless loop -->
-          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/ahoy-telecom-logo.svg"           alt="" /></div>
-          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/vanbelkum-logo.svg"               alt="" /></div>
-          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/teleVoIPs-300x105.webp"           alt="" /></div>
-          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/SpectrumVoIP-300x41.webp"         alt="" /></div>
-          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/SAVECOM-TELECOM.webp"             alt="" /></div>
-          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/pointVOIP-300x87.webp"            alt="" /></div>
-          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/jivetel.webp"                     alt="" /></div>
-          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/IN-TELECOM-300x64.webp"           alt="" /></div>
-          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/CALLREVU-300x44.webp"             alt="" /></div>
-          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/amplisys-logo-300x50.webp"        alt="" /></div>
-          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/cloudco-logo.webp"                alt="" /></div>
-          <div class="marquee-item" aria-hidden="true"><img src="Trusted by/mi-communication-logo-300x98.webp" alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="/trusted-by/ahoy-telecom-logo.svg"           alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="/trusted-by/vanbelkum-logo.svg"               alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="/trusted-by/teleVoIPs-300x105.webp"           alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="/trusted-by/SpectrumVoIP-300x41.webp"         alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="/trusted-by/SAVECOM-TELECOM.webp"             alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="/trusted-by/pointVOIP-300x87.webp"            alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="/trusted-by/jivetel.webp"                     alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="/trusted-by/IN-TELECOM-300x64.webp"           alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="/trusted-by/CALLREVU-300x44.webp"             alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="/trusted-by/amplisys-logo-300x50.webp"        alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="/trusted-by/cloudco-logo.webp"                alt="" /></div>
+          <div class="marquee-item" aria-hidden="true"><img src="/trusted-by/mi-communication-logo-300x98.webp" alt="" /></div>
         </div>
       </div>
     </section>
@@ -424,17 +419,9 @@
         </div>
       </div>
 
-      <!-- Right: Spline 3D viewer.
-           No events-target="global" — this object is click-driven (mouse down),
-           so it must NOT respond to page scroll. -->
+      <!-- Right: Three.js ATA viewer — click cycles through view states -->
       <div class="ata-viewer" id="ataViewer">
-        <spline-viewer
-          url="https://prod.spline.design/0qed5KHXLCVABoV8/scene.splinecode"
-          class="ata-spline"
-        ></spline-viewer>
-
-        <!-- Covers the "Built with Spline" watermark in bottom-right -->
-        <!-- <div class="ata-watermark-cover"></div> -->
+        <canvas id="ataCanvas" class="ata-spline"></canvas>
 
         <!-- 360 rotation hint — fades out on first interaction -->
         <div class="rotate-hint" id="rotateHint">
@@ -485,7 +472,7 @@
     <footer>
       <div class="footer-top">
         <a href="#" class="footer-logo">
-          <img src="FE-WHITE-SVG.svg" alt="FAXedge" class="footer-logo-img" />
+          <img src="/FE-WHITE-SVG.svg" alt="FAXedge" class="footer-logo-img" />
         </a>
         <nav class="footer-nav" aria-label="Footer navigation">
           <a href="#">Solutions</a>
@@ -511,177 +498,6 @@
   </div>
   <!-- /post-stage -->
 
-  <!-- =============================================
-       Scroll-driven scene animation
-       ============================================= -->
-  <script>
-    (function () {
-      const SCENE_COUNT = 5;
-      const scenes = [];
-
-      for (let i = 0; i < SCENE_COUNT; i++) {
-        const el = document.getElementById('scene' + i);
-        if (el) scenes.push(el);
-      }
-
-      // Scene 0: once the CSS entrance animation ends, remove it
-      // so the .visible class can fully control opacity from here on.
-      if (scenes[0]) {
-        scenes[0].addEventListener('animationend', () => {
-          scenes[0].style.animation = 'none';
-        }, { once: true });
-      }
-
-      // Spline steps: 5000 = exactly 5000px of scroll.
-      const SPLINE_STEPS = 5000;
-
-      function getScrollProgress() {
-        return Math.max(0, Math.min(1, window.scrollY / SPLINE_STEPS));
-      }
-
-      let activeZone  = -1;
-      let pendingZone = -1;
-      let switchTimer = null;
-      let prevScrollY = window.scrollY;
-      let scrollDir   = 'down'; // 'up' | 'down'
-
-      // Spline transition per state = 600ms.
-      // Scrolling DOWN: text waits 300ms (half-transition) → both arrive together.
-      // Scrolling UP: Spline must reverse through N states × 600ms each,
-      //   so we wait longer — capped at 800ms to stay usable.
-      function getSwitchDelay(fromZone, toZone) {
-        if (scrollDir === 'up') {
-          const statesBack = Math.max(1, fromZone - toZone);
-          return Math.min(800, statesBack * 300);
-        }
-        return 300;
-      }
-
-      function applyZone(zoneIndex) {
-        activeZone = zoneIndex;
-        scenes.forEach((el, i) => {
-          el.style.opacity   = '';
-          el.style.transform = '';
-          if (i === zoneIndex) {
-            el.classList.add('visible');
-          } else {
-            el.classList.remove('visible');
-          }
-        });
-      }
-
-      function updateScenes() {
-        // Track scroll direction before computing progress
-        scrollDir   = window.scrollY < prevScrollY ? 'up' : 'down';
-        prevScrollY = window.scrollY;
-
-        const progress  = getScrollProgress();
-        const rawIndex  = progress * SCENE_COUNT;
-        const zoneIndex = Math.min(Math.floor(rawIndex), SCENE_COUNT - 1);
-
-        if (zoneIndex === activeZone)  return;
-        if (zoneIndex === pendingZone) return;
-
-        clearTimeout(switchTimer);
-        pendingZone = zoneIndex;
-
-        const delay = getSwitchDelay(activeZone, zoneIndex);
-        switchTimer = setTimeout(() => {
-          applyZone(zoneIndex);
-          pendingZone = -1;
-        }, delay);
-      }
-
-      let ticking = false;
-      function onScroll() {
-        if (!ticking) {
-          requestAnimationFrame(function () { updateScenes(); ticking = false; });
-          ticking = true;
-        }
-      }
-
-      window.addEventListener('scroll', onScroll, { passive: true });
-
-      // iOS Safari: scroll position updates off the main thread during touch,
-      // so scroll events arrive late or infrequently. We poll scrollY on every
-      // animation frame while a touch is active and dispatch a real scroll event
-      // only when the position has actually changed — this keeps Spline in sync.
-      let isTouching = false;
-      let lastScrollY = -1;
-      function iosScrollPoll() {
-        if (!isTouching) return;
-        if (window.scrollY !== lastScrollY) {
-          lastScrollY = window.scrollY;
-          window.dispatchEvent(new Event('scroll'));
-          onScroll();
-        }
-        requestAnimationFrame(iosScrollPoll);
-      }
-      window.addEventListener('touchstart', function () {
-        isTouching = true;
-        lastScrollY = window.scrollY;
-        requestAnimationFrame(iosScrollPoll);
-      }, { passive: true });
-      window.addEventListener('touchend', function () {
-        isTouching = false;
-      }, { passive: true });
-
-      updateScenes();
-    })();
-  </script>
-
-  <!-- ATA viewer interaction -->
-  <script>
-    (function () {
-      const hint   = document.getElementById('rotateHint');
-      const viewer = document.getElementById('ataViewer');
-      if (!viewer) return;
-
-      // Dismiss the "Click to rotate" hint on first interaction
-      function dismiss() {
-        if (hint) hint.classList.add('dismissed');
-      }
-      viewer.addEventListener('mousedown',  dismiss, { once: true });
-      viewer.addEventListener('touchstart', dismiss, { once: true, passive: true });
-
-      // Stop wheel events from reaching the Spline canvas so scrolling
-      // over the object scrolls the PAGE instead of zooming/moving the 3D scene.
-      // Capture phase fires before the event enters the shadow-DOM canvas;
-      // stopPropagation blocks it there, but we DON'T preventDefault, so the
-      // page still scrolls normally. Clicks (mousedown) are untouched.
-      viewer.addEventListener('wheel', function (e) {
-        e.stopPropagation();
-      }, { capture: true, passive: true });
-    })();
-  </script>
-
-  <!-- Mobile menu toggle -->
-  <script>
-    (function () {
-      const burger = document.getElementById('navBurger');
-      const menu   = document.getElementById('mobileMenu');
-      if (!burger || !menu) return;
-
-      function close() {
-        menu.classList.remove('open');
-        burger.classList.remove('active');
-        burger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      }
-      function toggle() {
-        const isOpen = menu.classList.toggle('open');
-        burger.classList.toggle('active', isOpen);
-        burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-      }
-
-      burger.addEventListener('click', toggle);
-      // Close when any menu link is tapped
-      menu.querySelectorAll('a').forEach(a =>
-        a.addEventListener('click', close)
-      );
-    })();
-  </script>
 
 </body>
 </html>
