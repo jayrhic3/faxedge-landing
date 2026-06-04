@@ -1005,139 +1005,13 @@ nav {
   margin-bottom: 32px;
 }
 
-/* CSS Dashboard Mockup */
-.dashboard-mockup {
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 32px 80px rgba(0,0,0,0.6);
-  background: #0d0d0d;
-}
-
-.dash-titlebar {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 16px;
-  background: #161616;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-.dash-dots {
-  display: flex;
-  gap: 6px;
-}
-
-.dash-dots span {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.15);
-}
-
-.dash-dots span:nth-child(1) { background: #ff5f57; }
-.dash-dots span:nth-child(2) { background: #febc2e; }
-.dash-dots span:nth-child(3) { background: #28c840; }
-
-.dash-url {
-  flex: 1;
-  background: rgba(255,255,255,0.06);
-  border-radius: 6px;
-  padding: 4px 12px;
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  text-align: center;
-}
-
-.dash-body {
-  display: grid;
-  grid-template-columns: 130px 1fr;
-}
-
-.dash-sidebar {
-  background: #0a0a0a;
-  border-right: 1px solid rgba(255,255,255,0.06);
-  padding: 16px 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.dash-logo-bar {
-  padding: 4px 10px 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  margin-bottom: 8px;
-}
-
-.dash-nav-item {
-  font-size: 0.7rem;
-  padding: 7px 10px;
-  border-radius: 6px;
-  color: var(--text-muted);
-  cursor: default;
-  transition: background 0.2s;
-}
-
-.dash-nav-item.active {
-  background: rgba(41,151,255,0.15);
-  color: var(--accent-bright);
-}
-
-.dash-main {
-  padding: 20px;
-}
-
-.dash-title {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 16px;
-}
-
-.dash-stats-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  margin-bottom: 20px;
-}
-
-.dash-stat-box {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 8px;
-  padding: 10px;
-}
-
-.dsb-num {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  line-height: 1;
-}
-
-.dsb-lbl {
-  font-size: 0.6rem;
-  color: var(--text-muted);
-  margin-top: 4px;
-}
-
-.dash-chart-label {
-  font-size: 0.7rem;
-  color: var(--text-secondary);
-  margin-bottom: 8px;
-}
-
-.dash-chart {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 8px;
-  height: 80px;
-  overflow: hidden;
-}
-
-.dash-chart svg {
+/* Why FAXedge — real dashboard screenshot */
+.why-dashboard-img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  filter: drop-shadow(0 32px 80px rgba(0,0,0,0.5));
 }
 
 /* =============================================
@@ -1469,8 +1343,6 @@ footer {
   .btn-primary, .btn-outline { width: 100%; text-align: center; }
   .scene-stats { gap: 20px; }
 
-  /* Dashboard mockup: hide on very small screens to prevent overflow */
-  .why-visual { display: none; }
   .why-section { grid-template-columns: 1fr; }
 
   /* Partner visual: shrink */
