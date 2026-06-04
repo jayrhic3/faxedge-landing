@@ -1310,9 +1310,10 @@ nav {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 200px;
-  height: 52px;
-  background: linear-gradient(to left, #060d1f 40%, transparent 100%);
+  width: 260px;
+  height: 56px;
+  /* solid left section fully blocks watermark, fades to transparent on left edge */
+  background: linear-gradient(to left, #000 60%, transparent 100%);
   z-index: 10;
   pointer-events: none;
   border-radius: 0 0 24px 0;
