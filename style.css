@@ -721,11 +721,11 @@ nav {
 .proof-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  gap: 80px;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 100px 48px;
-  align-items: start;
+  padding: 120px 48px;
+  align-items: center;
 }
 
 /* Left */
