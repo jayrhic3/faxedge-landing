@@ -379,7 +379,8 @@ nav {
 
 /* Hero H1 — huge, tight, dominant */
 .scene h1 {
-  font-size: clamp(4rem, 9vw, 8.5rem);
+  /* min 96px → max 120px */
+  font-size: clamp(6rem, 8vw, 7.5rem);
   font-weight: 700;
   letter-spacing: -0.05em;
   line-height: 1.0;
